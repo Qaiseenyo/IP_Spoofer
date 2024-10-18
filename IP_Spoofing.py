@@ -13,7 +13,7 @@ fake = Faker()
 #Function to generate a fake IPv4 address
 
 def generate_fake_ip():
-    return fake.IPv4()
+    return fake.ipv4()
 
 def craft_and_send_packet(source_ip, destination_ip):
     
@@ -26,10 +26,10 @@ def craft_and_send_packet(source_ip, destination_ip):
     answers, _ = sr(packet, verbose=0, timeout=5)
     return answers
 
-    #Function to display a summary of the sent and recieved packets.
-
-def display_packet_summary(sent, recieved):
-    print(f"{Fore.GREEN}[+]")
+    # Function to display a summary of the sent and received packets.
+def display_packet_summary(sent, received):
+   print(f"{Fore.GREEN}[+] Sent Packet: {sent.summary()}\n")
+   print(f"{Fore.MAGENTA}[+] Response: {received.summary()}")
 
 # Check if the correct number of command-line arguments is provided
 if len(sys.argv) != 2:
